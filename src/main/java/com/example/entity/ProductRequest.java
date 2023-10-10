@@ -1,15 +1,20 @@
 package com.example.entity;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
-@Document(collection = "product") // mongoDB
-public class Product {
+public class ProductRequest {
 	
+	@NotBlank
 	private String id;
+	
+	@NotBlank
     private String name;
+
+	@Min(value = 0, message = "Price should be greater or equal to 0.")
     private int price;
-    
-    public void setId(String id) {
+	
+	public void setId(String id) {
         this.id = id;
     }
     

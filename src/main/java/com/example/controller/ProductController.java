@@ -1,8 +1,11 @@
 package com.example.controller;
 
-import com.example.entity.Product;
+import com.example.entity.ProductRequest;
+import com.example.entity.ProductResponse;
 import com.example.parameter.ProductParameter;
 import com.example.service.ProductService;
+
+import jakarta.validation.Valid;
 
 import java.net.URI;
 import java.util.List;
@@ -30,39 +33,41 @@ public class ProductController {
 	
 	// create product
 	@PostMapping("/products")
-    public ResponseEntity<Product> createProduct(@RequestBody Product request) {
-		Product product = productService.createProduct(request);
+    public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody ProductRequest request) {
+		ProductResponse productResponse = productService.createProduct(request);
+		
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(product.getId())
-                .toUri();
-        return ResponseEntity.created(location).body(product);
+        		.fromCurrentRequest()
+        		.path("/{id}")
+        		.buildAndExpand(productResponse.getId())
+        		.toUri();
+        
+        return ResponseEntity.created(location).body(productResponse);
     }
 	
 	// read product
 	@GetMapping("/products/{id}")
-	public ResponseEntity<Product> readProduct(@PathVariable("id") String id){
-		Product product = productService.readProduct(id);
-	    return ResponseEntity.ok().body(product);
+	public ResponseEntity<ProductResponse> readProduct(@PathVariable("id") String id){
+		ProductResponse productResponse = productService.readProduct(id);
+	    return ResponseEntity.ok(productResponse);
 	}
 	
 	// read all products
 	@GetMapping("/products")
-	public ResponseEntity<List<Product>> readProducts(@ModelAttribute ProductParameter param) {
-		List<Product> products = productService.readProducts(param);
-	    return ResponseEntity.ok(products);
+	public ResponseEntity<List<ProductResponse>> readProducts(@ModelAttribute ProductParameter param) {
+		List<ProductResponse> productResponses = productService.readProducts(param);
+	    return ResponseEntity.ok(productResponses);
 	}
 	
 	// update product
-	@PutMapping("products/{id}")
-	public ResponseEntity<Product> updateProduct(@PathVariable("id") String id, @RequestBody Product request) {
-		Product product = productService.updateProduct(id, request);
-        return ResponseEntity.ok().body(product);
+	@PutMapping("/products/{id}")
+	public ResponseEntity<ProductResponse> updateProduct(@PathVariable("id") String id, @Valid @RequestBody ProductRequest request) {
+		ProductResponse productResponse = productService.updateProduct(id, request);
+        return ResponseEntity.ok().body(productResponse);
 	}
 	
 	// delete product
-	@DeleteMapping("products/{id}")
+	@DeleteMapping("/products/{id}")
 	public ResponseEntity<Void> deleteProduct(@PathVariable("id") String id) {
 		productService.deleteProduct(id);
         return ResponseEntity.noContent().build();

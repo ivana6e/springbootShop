@@ -1,14 +1,11 @@
 package com.example.entity;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "product") // mongoDB
-public class Product {
+public class ProductResponse {
 	
 	private String id;
     private String name;
     private int price;
-    
+	
     public void setId(String id) {
         this.id = id;
     }
@@ -32,5 +29,4 @@ public class Product {
     public int getPrice() {
         return price;
     }
-    
 }
