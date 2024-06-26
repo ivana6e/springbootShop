@@ -12,7 +12,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends MongoRepository<Product, String> {
 
-	@Query("{'$and': [{'price': {'$gte': ?0, '$lte': ?1}}, {'name': {'$regex': ?2, '$options': 'i'}}]}")
+	@Query("{'$and': [{'price': {'$gte': ?0, '$lte': ?1}}, " +
+			"{'name': {'$regex': ?2, '$options': 'i'}}]}")
 	List<Product> findByPriceBetweenAndNameLikeIgnoreCase(int priceFrom, int priceTo, String keyword, Sort sort);
 	
 }

@@ -12,6 +12,9 @@ public class ProductConverter {
         product.setId(request.getId());
         product.setName(request.getName());
         product.setPrice(request.getPrice());
+        product.setStock(request.getStock());
+        product.setImgUrl(request.getImgUrl());
+        product.setCategory(request.getCategory());
 
         return product;
     }
@@ -22,6 +25,9 @@ public class ProductConverter {
         productResponse.setId(product.getId());
         productResponse.setName(product.getName());
         productResponse.setPrice(product.getPrice());
+        productResponse.setStock(product.getStock());
+        productResponse.setImgUrl(product.getImgUrl());
+        productResponse.setCategory(product.getCategory());
 
         return productResponse;
     }

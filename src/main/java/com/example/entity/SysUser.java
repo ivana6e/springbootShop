@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "user") // mongoDB
+@Document(collection = "sysUser") // mongoDB
 public class SysUser {
 	
 	private String id;

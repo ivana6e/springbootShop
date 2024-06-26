@@ -45,7 +45,7 @@ public class ProductService {
         
         if(maxPrice == 0) maxPrice = Integer.MAX_VALUE;
         
-        // id, name, price/ ASC, DESC
+        // id, name, price: ASC, DESC
         Sort sort = genSortingStrategy(param.getOrderBy(), param.getSortRule());
         
         List<Product> products = productRepository.findByPriceBetweenAndNameLikeIgnoreCase(minPrice, maxPrice, keyword, sort);

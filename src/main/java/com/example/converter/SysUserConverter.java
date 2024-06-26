@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class SysUserConverter {
 	
-	// user request to database document(user)
+	// user request to database document(sysUser)
 	public static SysUser toSysUser(SysUserRequest request) {
         SysUser sysUser = new SysUser();
         sysUser.setId(request.getId()); //
@@ -21,7 +21,7 @@ public class SysUserConverter {
         return sysUser;
     }
 
-	// database document(user) to user response
+	// database document(sysUser) to user response
     public static SysUserResponse toSysUserResponse(SysUser sysUser) {
         SysUserResponse sysUserResponse = new SysUserResponse();
         sysUserResponse.setId(sysUser.getId());

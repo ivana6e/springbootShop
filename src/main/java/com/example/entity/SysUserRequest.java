@@ -9,18 +9,13 @@ public class SysUserRequest {
 	
 	@NotBlank
 	private String id;
-	
 	@NotBlank
     private String name;
-	
 	@NotBlank
 	@Email
     private String emailAddress;
-	
     @NotBlank
     private String password;
-    
-    
     private List<SysUserAuthority> authorities;
     
     public void setId(String id) {

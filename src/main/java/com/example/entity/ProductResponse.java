@@ -5,6 +5,9 @@ public class ProductResponse {
 	private String id;
     private String name;
     private int price;
+    private int stock;
+    private String imgUrl;
+    private ProductCategory category;
 	
     public void setId(String id) {
         this.id = id;
@@ -28,5 +31,29 @@ public class ProductResponse {
 
     public int getPrice() {
         return price;
+    }
+    
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
+    public int getStock() {
+        return stock;
+    }
+    
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+    
+    public String getImgUrl() {
+        return imgUrl;
+    }
+    
+    public void setCategory(ProductCategory category) {
+        this.category = category;
+    }
+    
+    public ProductCategory getCategory() {
+        return category;
     }
 }

@@ -7,12 +7,15 @@ public class ProductRequest {
 	
 	@NotBlank
 	private String id;
-	
 	@NotBlank
     private String name;
-
 	@Min(value = 0, message = "Price should be greater or equal to 0.")
     private int price;
+	@Min(value = 0, message = "Stock should be greater or equal to 0.")
+	private int stock;
+	@NotBlank
+    private String imgUrl;
+    private ProductCategory category;
 	
 	public void setId(String id) {
         this.id = id;
@@ -36,6 +39,30 @@ public class ProductRequest {
 
     public int getPrice() {
         return price;
+    }
+    
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
+    public int getStock() {
+        return stock;
+    }
+    
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+    
+    public String getImgUrl() {
+        return imgUrl;
+    }
+    
+    public void setCategory(ProductCategory category) {
+        this.category = category;
+    }
+    
+    public ProductCategory getCategory() {
+        return category;
     }
     
 }

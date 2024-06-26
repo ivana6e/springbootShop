@@ -1,5 +1,6 @@
 package com.example.parameter;
 
+// encapsulate query string
 public class ProductParameter {
 	private String keyword;
     private String orderBy;
@@ -31,20 +32,20 @@ public class ProductParameter {
         return sortRule;
     }
     
+    public void setMinPrice(Integer minPrice) {
+        this.minPrice = minPrice;
+    }
+    
     public int getMinPrice() {
         return minPrice;
     }
-
-    public void setMinPrice(Integer minPrice) {
-        this.minPrice = minPrice;
+    
+    public void setMaxPrice(Integer maxPrice) {
+        this.maxPrice = maxPrice;
     }
 
     public int getMaxPrice() {
         return maxPrice;
-    }
-
-    public void setMaxPrice(Integer maxPrice) {
-        this.maxPrice = maxPrice;
     }
     
 }
